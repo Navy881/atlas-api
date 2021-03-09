@@ -1,0 +1,7 @@
+{
+  "FrontendFeatures": {
+    "RoutesPage:Table:Columns": {
+      "Consignor": true
+    }
+  }
+}

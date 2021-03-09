@@ -1,0 +1,9 @@
+{
+  "Gates": {
+    "Bookings": {
+      "Creation": {
+        "DynamicAvailableSlotsRoundingStrategy": "X5MinutesCeiling"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "AutoplanningSettings": {
+    "OrderFilter": {
+      "Time": "ExecutionTime"
+    }
+  }
+}

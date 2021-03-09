@@ -1,0 +1,46 @@
+{
+  "AllocationSettings": {
+    "AllocationStages": [
+      {
+        "DefaultCode": "DefaultCode",
+        "ManualCorrection": {
+          "Display": true,
+          "Enabled": true
+        },
+        "Name": "SetHub",
+        "Strategies": [
+          {
+            "Name": "Code",
+            "OnEmptyPredicate": "NextStage",
+            "OnEmptyResult": "Break",
+            "OnError": "Break",
+            "OnMultipleResult": "Break"
+          },
+          {
+            "Name": "DefaultCode",
+            "OnEmptyPredicate": "Break",
+            "OnEmptyResult": "Break",
+            "OnError": "Break",
+            "OnMultipleResult": "Break"
+          }
+        ]
+      },
+      {
+        "ManualCorrection": {
+          "Display": true,
+          "Enabled": true
+        },
+        "Name": "SetCarrier",
+        "Strategies": [
+          {
+            "Name": "Code",
+            "OnEmptyPredicate": "NextStage",
+            "OnEmptyResult": "Break",
+            "OnError": "Break",
+            "OnMultipleResult": "Break"
+          }
+        ]
+      }
+    ]
+  }
+}

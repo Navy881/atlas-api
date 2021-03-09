@@ -1,0 +1,7 @@
+{
+  "AutoplanningSettings": {
+    "RouteCreation": {
+      "ShouldCreateLoadRoutePoint": true
+    }
+  }
+}

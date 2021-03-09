@@ -1,0 +1,14 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierAccepting": {
+        "AvailableStates": {
+          "RouteStates": [
+            "CarrierAssigned"
+          ]
+        },
+        "IsAvailable": true
+      }
+    }
+  }
+}

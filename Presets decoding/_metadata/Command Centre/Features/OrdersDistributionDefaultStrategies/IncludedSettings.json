@@ -1,0 +1,13 @@
+{
+  "FrontendFeatures": {
+    "OMS,TMS:DistributionStrategies": {
+      "default": [
+        "vrpmetis"
+      ],
+      "type": "control",
+      "value": [
+        "vrpmetis"
+      ]
+    }
+  }
+}

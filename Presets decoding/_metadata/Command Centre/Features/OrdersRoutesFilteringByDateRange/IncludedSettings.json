@@ -1,0 +1,9 @@
+{
+  "FrontendFeatures": {
+    "OMS,TMS:Filter:date": {
+      "default": "currentDay",
+      "type": "control",
+      "value": "dateRange"
+    }
+  }
+}

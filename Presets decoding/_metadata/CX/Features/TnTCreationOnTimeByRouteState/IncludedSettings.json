@@ -1,0 +1,13 @@
+{
+  "TrackAndTraceSettings": {
+    "NotificationPreset": {
+      "NotificationTime": "Any",
+      "TntCreation": {
+        "RouteCreationOptions": {
+          "States": "Any"
+        }
+      },
+      "UseTimeForTnTCreate": true
+    }
+  }
+}

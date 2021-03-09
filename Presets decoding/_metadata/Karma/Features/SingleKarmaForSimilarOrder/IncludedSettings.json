@@ -1,0 +1,7 @@
+{
+  "KarmaSettings": {
+    "OrderSimilarity": {
+      "Distance": 1500
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "TrackAndTraceSettings": {
+    "NotificationPreset": {
+      "NotificationTime": "Any",
+      "TntCreation": {
+        "OrderCreationOptions": {
+          "States": "Any"
+        }
+      },
+      "UseTimeForTnTCreate": true
+    }
+  }
+}

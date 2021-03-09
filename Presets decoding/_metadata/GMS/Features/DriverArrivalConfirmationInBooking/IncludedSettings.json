@@ -1,0 +1,13 @@
+{
+  "Gates": {
+    "Bookings": {
+      "DriverArrivalConfirmation": {
+        "AvailableStates": {
+          "RoutePointStates": [
+            "Created"
+          ]
+        }
+      }
+    }
+  }
+}

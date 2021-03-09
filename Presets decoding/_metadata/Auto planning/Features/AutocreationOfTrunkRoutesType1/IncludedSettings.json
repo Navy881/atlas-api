@@ -1,0 +1,21 @@
+{
+  "AutoplanningSettings": {
+    "RouteCreation": {
+      "Filter": {
+        "Tags": {
+          "In": [
+            {
+              "Type": "",
+              "Value": "OrderInRoute"
+            }
+          ],
+          "Not": []
+        }
+      },
+      "RouteCreation": {
+        "ShouldCreateLoadRoutePoint": true,
+        "ShouldUnlinkOrderFromRoutes": false
+      }
+    }
+  }
+}

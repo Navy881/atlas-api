@@ -1,0 +1,24 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierReassigning": {
+        "AvailableStates": {
+          "RouteStates": [
+            "CarrierAssigned",
+            "CarrierAccepted",
+            "CarrierRejected",
+            "PerformerAssigning",
+            "PerformerNotAssigned",
+            "PerformerAssigned",
+            "SentToPerformer",
+            "PerformerAccepted",
+            "PerformerRejected"
+          ]
+        },
+        "Options": {
+          "Bidding": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Gates": {
+    "Bookings": {
+      "Creation": {
+        "OneRouteOneBooking": true,
+        "Strategy": "LatestTimeslot"
+      },
+      "CreationRequiredRouteStates": [
+        "PerformerAssigned",
+        "SentToPerformer",
+        "PerformerAccepted",
+        "Planned",
+        "CarrierAssigning",
+        "CarrierNotAssigned",
+        "CarrierAssigned",
+        "CarrierAccepted",
+        "CarrierRejected"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "PerformerAssigning": {
+        "Options": {
+          "TransportAssigningFilterDefaults": {
+            "Strategy": "OrdersAndRoutesWeightTypeRange",
+            "Strict": false
+          }
+        }
+      }
+    }
+  }
+}

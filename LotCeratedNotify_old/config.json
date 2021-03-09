@@ -1,0 +1,11 @@
+{
+  "BotParameters":
+  {
+    "token": "",
+    "sending_period": "30",
+    "chat_id": "",
+    "proxy_url": "",
+	"username": "",
+	"password": ""
+  }
+}

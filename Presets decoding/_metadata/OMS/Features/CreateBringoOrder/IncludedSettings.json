@@ -1,0 +1,13 @@
+{
+  "WorkerSubsriberEvents": [
+    {
+      "Triggers": [
+        {
+          "Name": "CreateBringoOrder",
+          "State": "OnItsWay"
+        }
+      ],
+      "Type": "OnOrderStateChange"
+    }
+  ]
+}

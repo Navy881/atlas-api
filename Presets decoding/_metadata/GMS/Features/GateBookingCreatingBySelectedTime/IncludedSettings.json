@@ -1,0 +1,9 @@
+{
+  "Gates": {
+    "Bookings": {
+      "Creation": {
+        "Strategy": "AvailableSlots"
+      }
+    }
+  }
+}

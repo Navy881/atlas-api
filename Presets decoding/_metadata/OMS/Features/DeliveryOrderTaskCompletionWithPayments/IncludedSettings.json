@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderTaskCompletion": {
+      "Delivery": {
+        "SetPayments": true
+      }
+    }
+  }
+}

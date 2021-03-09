@@ -1,0 +1,9 @@
+{
+  "AutoplanningSettings": {
+    "RouteUpdate": {
+      "OrdersAttaching": {
+        "RouteStates": "Any"
+      }
+    }
+  }
+}

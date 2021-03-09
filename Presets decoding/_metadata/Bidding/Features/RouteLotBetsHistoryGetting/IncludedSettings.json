@@ -1,0 +1,11 @@
+{
+  "ManualFlowCorrection": {
+    "RouteLotBetsHistoryGetting": {
+      "AvailableStates": {
+        "LotStates": [
+          "Completed"
+        ]
+      }
+    }
+  }
+}

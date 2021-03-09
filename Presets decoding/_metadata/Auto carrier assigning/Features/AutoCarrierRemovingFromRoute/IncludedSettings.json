@@ -1,0 +1,16 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierAccepting": {
+        "AvailableStatesForApprovalAction": {
+          "RouteStates": [
+            "CarrierAccepted",
+            "PerformerAssigned"
+          ]
+        },
+        "IsAvailable": true,
+        "WaitingTimeInMinutes": 60
+      }
+    }
+  }
+}

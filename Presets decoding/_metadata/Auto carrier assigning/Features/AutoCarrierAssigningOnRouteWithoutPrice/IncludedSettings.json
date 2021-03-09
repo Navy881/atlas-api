@@ -1,0 +1,69 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierAssigning": {
+        "AvailableStates": {
+          "RouteStates": [
+            "Planned",
+            "CarrierNotAssigned"
+          ]
+        },
+        "Options": {
+          "Auto": true
+        }
+      },
+      "CarrierQueueSettings": {
+        "Strategy": "PricelessLoyalty"
+      }
+    }
+  },
+  "TacticalLegsSettings": {
+    "SubscriberEvents": [
+      {
+        "Triggers": [
+          {
+            "Exchange": "tacticalLegAllocation",
+            "RoutingKey": "resolving"
+          }
+        ],
+        "Type": "OnAllocationResolving"
+      },
+      {
+        "Triggers": [
+          {
+            "Exchange": "tacticalLegAllocation",
+            "RoutingKey": "stateChanged"
+          }
+        ],
+        "Type": "OnAllocationStateChanged"
+      },
+      {
+        "Triggers": [
+          {
+            "Exchange": "tacticalLegs",
+            "RoutingKey": "changed"
+          }
+        ],
+        "Type": "OnChanged"
+      },
+      {
+        "Triggers": [
+          {
+            "Exchange": "tacticalLegs",
+            "RoutingKey": "created"
+          }
+        ],
+        "Type": "OnCreated"
+      },
+      {
+        "Triggers": [
+          {
+            "Exchange": "tacticalLegs",
+            "RoutingKey": "deleted"
+          }
+        ],
+        "Type": "OnDeleted"
+      }
+    ]
+  }
+}

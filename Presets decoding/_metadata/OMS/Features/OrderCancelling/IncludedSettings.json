@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderCancelling": {
+      "AvailableStates": {
+        "OrderStates": "Any"
+      }
+    }
+  }
+}

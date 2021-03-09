@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderReturnToReadyForPlanning": {
+      "AvailableStates": {
+        "OrderStates": "Any"
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "TMSSettings": {
+    "VisibleSetting": [
+      {
+        "Flow": "CanViewForwarderFlowRoutes",
+        "RoutesTable": {
+          "Tabs": [
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [],
+              "VisibleName": "\u0412\u0441\u0435 \u043c\u0430\u0440\u0448\u0440\u0443\u0442\u044b"
+            },
+            {
+              "CheckBoxes": true,
+              "FilterByRouteStates": [
+                "Planned",
+                "CarrierNotAssigned"
+              ],
+              "VisibleName": "\u041d\u0430\u0437\u043d\u0430\u0447\u0438\u0442\u044c \u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a\u0430"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "CarrierAssigning"
+              ],
+              "VisibleName": "\u041f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a \u043d\u0430\u0437\u043d\u0430\u0447\u0430\u0435\u0442\u0441\u044f"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "CarrierAssigned",
+                "CarrierAccepted",
+                "PerformerAssigning",
+                "PerformerAssigned",
+                "SentToPerformer",
+                "PerformerAccepted"
+              ],
+              "VisibleName": "\u041f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a \u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "Started"
+              ],
+              "VisibleName": "\u0412 \u043f\u0443\u0442\u0438"
+            }
+          ]
+        }
+      },
+      {
+        "Flow": "CanViewCarrierFlowRoutes",
+        "RoutesTable": {
+          "Tabs": [
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [],
+              "VisibleName": "\u0412\u0441\u0435 \u043c\u0430\u0440\u0448\u0440\u0443\u0442\u044b"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "CarrierAssigned",
+                "CarrierAccepted"
+              ],
+              "VisibleName": "\u041d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044b\u0435"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "PerformerAssigned"
+              ],
+              "VisibleName": "\u0418\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c \u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d"
+            },
+            {
+              "CheckBoxes": false,
+              "FilterByRouteStates": [
+                "Started"
+              ],
+              "VisibleName": "\u0412 \u043f\u0443\u0442\u0438"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

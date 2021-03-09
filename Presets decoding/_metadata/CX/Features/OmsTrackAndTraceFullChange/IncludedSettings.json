@@ -1,0 +1,16 @@
+{
+  "WorkerSubsriberEvents": [
+    {
+      "Triggers": [
+        {
+          "Name": "OmsTrackAndTraceFullChange",
+          "States": [
+            "ReadyForPlanning",
+            "Planned"
+          ]
+        }
+      ],
+      "Type": "OnOrderStateChange"
+    }
+  ]
+}

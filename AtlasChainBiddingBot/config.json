@@ -1,0 +1,25 @@
+{
+  "TelegramBotParameters": {
+    "token": "",
+    "sending_period": "5",
+    "chat_id": [
+      ""
+    ],
+    "proxy_url": "",
+    "username": "",
+    "password": ""
+  },
+  "SlackApiParameters": {
+    "token": "",
+    "channel_id": ""
+  },
+  "AtlasAPIParameters": {
+    "uri": "",
+    "moloch_uri": "",
+    "username": "",
+    "password": ""
+  },
+  "MaxRadius": 1000,
+  "TimeOffset": 3,
+  "MaxInlineButtons": 30
+}

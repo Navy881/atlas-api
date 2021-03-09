@@ -1,0 +1,7 @@
+{
+  "CalculateDeliveryTimeSlot": {
+    "CalculateDeliveryTime": true,
+    "LowerBorder": "01:00:00",
+    "UpperBorder": "01:00:00"
+  }
+}

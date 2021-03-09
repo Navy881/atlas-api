@@ -1,0 +1,24 @@
+{
+  "ArchiveSettings": {
+    "ArchiveIsActive": true,
+    "OrderArchive": {
+      "CheckOrderState": true,
+      "OrderArchivePeriod": "5.00:00:00",
+      "StartOrderArchive": true
+    },
+    "OrderComplete": {
+      "OrderCompleteComment": "Order was completed automatically",
+      "OrderCompletePeriod": "5.00:00:00",
+      "OrderCompleteStatus": "Cancelled",
+      "StartOrderComplete": true
+    },
+    "RouteArchive": {
+      "RouteArchivePeriod": "5.00:00:00",
+      "StartRouteArchive": true
+    },
+    "RouteComplete": {
+      "RouteCompletePeriod": "5.00:00:00",
+      "StartRouteCompleting": true
+    }
+  }
+}

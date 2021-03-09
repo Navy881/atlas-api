@@ -1,0 +1,7 @@
+{
+  "FrontendFeatures": {
+    "Gates:ShowingStrategy": {
+      "BookingStatusForCedrus": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "WorkerSubsriberEvents": [
+    {
+      "Triggers": [
+        {
+          "Name": "Validate",
+          "State": "Created"
+        },
+        {
+          "Name": "Geocode",
+          "State": "CorrectData"
+        },
+        {
+          "Name": "Allocate",
+          "State": "Geocoded"
+        },
+        {
+          "Name": "TimeSlotCorrection",
+          "State": "Allocated"
+        }
+      ],
+      "Type": "OnOrderStateChange"
+    }
+  ]
+}

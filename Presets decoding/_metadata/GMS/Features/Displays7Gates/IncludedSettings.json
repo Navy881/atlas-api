@@ -1,0 +1,9 @@
+{
+  "Gates": {
+    "Bookings": {
+      "DisplaySettings": {
+        "GatesPerPage": 7
+      }
+    }
+  }
+}

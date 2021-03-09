@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderTaskCompletion": {
+      "PickUp": {
+        "SetServices": true
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "TmsWorkerSettings": {
+    "RoutePointTriggers": [
+      {
+        "State": null,
+        "TriggerName": "TmsTrackAndTraceChange"
+      }
+    ]
+  }
+}

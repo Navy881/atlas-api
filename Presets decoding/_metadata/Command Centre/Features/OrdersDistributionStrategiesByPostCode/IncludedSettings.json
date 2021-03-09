@@ -1,0 +1,15 @@
+{
+  "FrontendFeatures": {
+    "OMS,TMS:DistributionStrategies": {
+      "default": [
+        "toofficesbypostcode",
+        "vrpmetis"
+      ],
+      "type": "control",
+      "value": [
+        "toofficesbypostcode",
+        "vrpmetis"
+      ]
+    }
+  }
+}

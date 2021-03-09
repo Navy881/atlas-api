@@ -1,0 +1,29 @@
+{
+  "TmsWorkerSettings": {
+    "RouteSubscriberEvents": [
+      {
+        "Triggers": [
+          {
+            "Exchange": null,
+            "Queue": "SendRouteToDevice",
+            "RoutingKey": null,
+            "State": "PerformerAssigned"
+          },
+          {
+            "Exchange": null,
+            "Queue": "CheckCarrierAfterPlanning",
+            "RoutingKey": null,
+            "State": "Planned"
+          },
+          {
+            "Exchange": null,
+            "Queue": "CheckPerformerAfterPlanning",
+            "RoutingKey": null,
+            "State": "CarrierAssigned"
+          }
+        ],
+        "Type": "OnRouteStateChanged"
+      }
+    ]
+  }
+}

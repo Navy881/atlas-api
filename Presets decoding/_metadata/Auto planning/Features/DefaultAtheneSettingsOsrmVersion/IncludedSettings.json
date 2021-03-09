@@ -1,0 +1,9 @@
+{
+  "AutoplanningSettings": {
+    "AtheneSettings": {
+      "OsrmConfiguration": {
+        "Version": "Any"
+      }
+    }
+  }
+}

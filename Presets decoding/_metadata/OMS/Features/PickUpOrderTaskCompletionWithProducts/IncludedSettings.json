@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderTaskCompletion": {
+      "PickUp": {
+        "SetProducts": true
+      }
+    }
+  }
+}

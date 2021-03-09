@@ -1,0 +1,11 @@
+{
+  "FrontendFeatures": {
+    "Layout:Navigation": {
+      "NavigationStrategy": "CedRus",
+      "ShowGateModule": true
+    },
+    "GateBooking:Page": {
+      "BookingCalendarStep": 60
+    }
+  }
+}

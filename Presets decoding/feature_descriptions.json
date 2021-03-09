@@ -1,0 +1,3453 @@
+{
+  "Modules": [
+    {
+      "Name": "Resources",
+      "Features": [
+        {
+          "Name": "ResourcesManagement",
+          "Description": "Разрешение на переход в UI управления ресурсами.",
+          "Presets": {
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewLegacySettings",
+                "CanCreateUsers",
+                "CanEditCompany",
+                "CanManageResources",
+                "CanAccessSubCompanies"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "FirstNameFieldValidationInPersonCard",
+          "Description": "Валидация значения поля “Имя”, в форме создания/редактирования мобильного пользователя",
+          "Presets": {
+            "FrontendFeatures": {
+              "PERSONS:Card": {
+                "fill": {
+                  "FirstName": {
+                    "description": "должно быть кириллицей в верхнем регистре",
+                    "pattern": "^([А-Я]+[-\\s]?){1,}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "LastNameFieldValidationInPersonCard",
+          "Description": "Валидация значения поля “Фамилия”, в форме создания/редактирования мобильного пользователя",
+          "Presets": {
+            "FrontendFeatures": {
+              "PERSONS:Card": {
+                "fill": {
+                  "LastName": {
+                    "description": "должно быть кириллицей в верхнем регистре",
+                    "pattern": "^([А-Я]+[-\\s]?){1,}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PatronymicFieldValidationInPersonCard",
+          "Description": "Валидация значения поля “Отчество”, в форме создания/редактирования мобильного пользователя",
+          "Presets": {
+            "FrontendFeatures": {
+              "PERSONS:Card": {
+                "fill": {
+                  "Patronymic": {
+                    "description": "должно быть кириллицей в верхнем регистре",
+                    "pattern": "^([А-Я]+[-\\s]?){1,}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PhoneFieldValidationInPersonCard",
+          "Description": "Валидация значения поля “Номер телефона”, в форме создания/редактирования мобильного пользователя",
+          "Presets": {
+            "FrontendFeatures": {
+              "PERSONS:Card": {
+                "fill": {
+                  "Phone": {
+                    "description": "должно быть 8(***)***-**-**",
+                    "pattern": "^8\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "CompanyAdvancedEditing",
+          "Description": "Указание и отображение ExternalId, кода, ИНН и КПП компании в форме создания/изменения компании",
+          "Presets": {
+            "FrontendFeatures": {
+              "TMS:CompanyEdit:Fields": {
+                "hide": [],
+                "show": [
+                  "Additional.InnerId",
+                  "Additional.ContractCode",
+                  "Additional.Inn",
+                  "Additional.Kpp"
+                ]
+              },
+              "TMS:CompanyInfo:Fields": {
+                "hide": [],
+                "show": [
+                  "Additional.InnerId",
+                  "Additional.ContractCode",
+                  "Additional.Inn",
+                  "Additional.Kpp"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "Name": "TransportAdvancedEditing",
+          "Description": "Указание и отображение типов погрузки/выгрузки ТС и пропусков в форме создания/изменения ТС",
+          "Presets": {
+            "FrontendFeatures": {
+              "TMS:TransportEdit:Fields": {
+                "hide": [],
+                "order": "hide,show",
+                "show": [
+                  "AvailableLoadUnloadTypes",
+                  "TransportRestrictions"
+                ]
+              }
+            },
+            "LoadUnloadTypesMetaData": [
+              {
+                "Name": "SingleSide",
+                "Title": "Боковая 1"
+              },
+              {
+                "Include": [
+                  "SingleSide"
+                ],
+                "Name": "BothSide",
+                "Title": "Боковая 2"
+              },
+              {
+                "Include": [],
+                "Name": "Back",
+                "Title": "Задняя"
+              },
+              {
+                "Include": [],
+                "Name": "Top",
+                "Title": "Верхняя"
+              }
+            ],
+            "TransportRestrictionsMetaData": [
+              {
+                "Include": [
+                  "ТТК",
+                  "МКАД"
+                ],
+                "Name": "СК",
+                "Title": "СК",
+                "Translation": "pages.settings.transport.transport_restrictions_sk"
+              },
+              {
+                "Include": [
+                  "МКАД"
+                ],
+                "Name": "ТТК",
+                "Title": "ТТК",
+                "Translation": "pages.settings.transport.transport_restrictions_ttk"
+              },
+              {
+                "Include": [],
+                "Name": "МКАД",
+                "Title": "МКАД",
+                "Translation": "pages.settings.transport.transport_restrictions_mkad"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "RemovingReallocationPersonsLock",
+          "Description": "Возможность назначать любого водителя на маршрут",
+          "Presets": {
+            "FrontendFeatures": {
+              "RemoveReallocationPersonsLock": true
+            }
+          }
+        },
+        {
+          "Name": "PasswordFieldValidation",
+          "Description": "Валидация пароля курьера",
+          "Presets": {
+            "FrontendFeatures": {
+              "PERSONS:Card": {
+                "fill": {
+                  "Password": {
+                    "description": "Минимум 9 символов: минимум одна латинская буква в верхнем регистре, одна в нижнем регистре, одна цифра и один символ",
+                    "pattern": "^(?=.{9,})((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[а-яА-Яё])|(?=.*\\d)(?=.*[a-zA-Z])(?=.*[\\W_])(?!.*[а-яА-Яё])|(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_])(?!.*[а-яА-Яё])).*$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "TransportNumberFieldValidation",
+          "Description": "Валидация номера ТС в форме создания/редактирования ТС",
+          "Presets": {
+            "FrontendFeatures": {
+              "TRANSPORTS:Card": {
+                "fill": {
+                  "Number": {
+                    "description": "должно быть цифрами и латиницей в верхнем регистре",
+                    "pattern": "^[A-Z]{1}[0-9]{3}[A-Z]{2}[0-9]{2,3}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "OMS",
+      "Features": [
+        {
+          "Name": "OrdersManagement",
+          "Description": "Упавление заказами.",
+          "Presets": {
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewOms",
+                "CanEditTasks",
+                "CanImportTasks"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "WorkerSubsriberEventOnOrderStateChanging",
+          "Description": "Обработка заказа. Валидация данных -> Геокодирование -> Распределение -> Корректировка таймcлотов",
+          "Clients": {
+            "Chain": true,
+            "Cedrus": true,
+            "Transvalair": true,
+            "Beluga": true,
+            "IQOS": true,
+            "LeroyMerlin": true,
+            "VGK": true,
+            "Donskoy Kamen": true,
+            "DamTrans": true,
+            "Galamart": true,
+            "Fakro-R": true,
+            "IQOS-C2C": true
+          },
+          "Presets": {
+            "WorkerSubsriberEvents": [
+              {
+                "Triggers": [
+                  {
+                    "Name": "Validate",
+                    "State": "Created"
+                  },
+                  {
+                    "Name": "Geocode",
+                    "State": "CorrectData"
+                  },
+                  {
+                    "Name": "Allocate",
+                    "State": "Geocoded"
+                  },
+                  {
+                    "Name": "TimeSlotCorrection",
+                    "State": "Allocated"
+                  }
+                ],
+                "Type": "OnOrderStateChange"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "AllocationOnHubByExternalId",
+          "Description": "Распределение заказа на хаб по внешнему id",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "DefaultCode": "DefaultCode",
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetHub",
+                  "Strategies": [
+                    {
+                      "Name": "ExternalId",
+                      "OnEmptyPredicate": "Break",
+                      "OnEmptyResult": "Break",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AllocationOnCarrierByExternalId",
+          "Description": "Распределение заказа на перевозчика по внешнему id",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "DefaultCode": "DefaultCode",
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetCarrier",
+                  "Strategies": [
+                    {
+                      "Name": "ExternalId",
+                      "OnEmptyPredicate": "NextStrategies",
+                      "OnEmptyResult": "Break",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    },
+                    {
+                      "Name": "SetSuccessState",
+                      "OnEmptyPredicate": "NextStage",
+                      "OnEmptyResult": "NextStage",
+                      "OnError": "Break",
+                      "OnMultipleResult": "NextStage"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AllocationOnLegByExternalId",
+          "Description": "Распределение заказа на плечо по  внешнему id",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "DefaultCode": "DefaultCode",
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetTacticalLeg",
+                  "Strategies": [
+                    {
+                      "Name": "ExternalId",
+                      "OnEmptyPredicate": "NextStrategies",
+                      "OnEmptyResult": "NextStrategies",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    },
+                    {
+                      "Name": "SetSuccessState",
+                      "OnEmptyPredicate": "NextStage",
+                      "OnEmptyResult": "NextStage",
+                      "OnError": "Break",
+                      "OnMultipleResult": "NextStage"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AllocationOnHubByCode",
+          "Description": "Распределение заказа на хаб по коду",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "DefaultCode": "DefaultCode",
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetHub",
+                  "Strategies": [
+                    {
+                      "Name": "Code",
+                      "OnEmptyPredicate": "NextStage",
+                      "OnEmptyResult": "Break",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    },
+                    {
+                      "Name": "DefaultCode",
+                      "OnEmptyPredicate": "Break",
+                      "OnEmptyResult": "Break",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AllocationOnCarrierByCode",
+          "Description": "Распределение заказа на перевозчика по коду",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetCarrier",
+                  "Strategies": [
+                    {
+                      "Name": "Code",
+                      "OnEmptyPredicate": "NextStage",
+                      "OnEmptyResult": "Break",
+                      "OnError": "Break",
+                      "OnMultipleResult": "Break"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AllocationOnHubByGeoTag",
+          "Description": "Распределение заказа на хаб геотегу",
+          "Presets": {
+            "AllocationSettings": {
+              "AllocationStages": [
+                {
+                  "ManualCorrection": {
+                    "Display": true,
+                    "Enabled": true
+                  },
+                  "Name": "SetHub",
+                  "Strategies": [
+                    {
+                      "Name": "GeoTag",
+                      "OnEmptyResult": "Break",
+                      "OnMultipleResult": "Break"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "OrderExternalIdShowingInOrderTable",
+          "Description": "Отображение внешних id заказов в таблице с заказами",
+          "Presets": {
+            "OMSSettings": {
+              "OrdersTable": {
+                "ShowExternalId": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderCancelling",
+          "Description": "Отмена заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderCancelling": {
+                "AvailableStates": {
+                  "OrderStates": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderPending",
+          "Description": "Пересмотр заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderPending": {
+                "AvailableStates": {
+                  "OrderStates": [
+                    "Planning",
+                    "Planned",
+                    "Loaded",
+                    "OnItsWay"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderReturnToReadyForPlanning",
+          "Description": "Перепланирование заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderReturnToReadyForPlanning": {
+                "AvailableStates": {
+                  "OrderStates": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderHubCorrectionInOrderTable",
+          "Description": "Корректировка хаба заказа в таблице заказов",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderZoneCorrection": {
+                "SetHub": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderCarrierCorrectionInOrderTable",
+          "Description": "Корректировка перевозчика заказа в таблице заказов",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderZoneCorrection": {
+                "SetCarrier": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "LoadOrderTaskCompletionWithProducts",
+          "Description": "Указание кол-ва погруженного товара при завершении погрузки заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "Load": {
+                  "SetProducts": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "DeliveryOrderTaskCompletionWithProducts",
+          "Description": "Указание кол-ва доставленного товара при завершении доставки заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "Delivery": {
+                  "SetProducts": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "DeliveryOrderTaskCompletionWithServices",
+          "Description": "Указание кол-ва оказанных услуг при завершении доставки заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "Delivery": {
+                  "SetServices": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "DeliveryOrderTaskCompletionWithPayments",
+          "Description": "Указание оплаты при завершении доставки заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "Delivery": {
+                  "SetPayments": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "ReturnOrderTaskCompletionWithProducts",
+          "Description": "Указание кол-ва выгруженного товара при завершении возврата заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "Return": {
+                  "SetProducts": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PickUpOrderTaskCompletionWithProducts",
+          "Description": "Указание кол-ва забранного товара при завершении подбора заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "PickUp": {
+                  "SetProducts": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PickUpOrderTaskCompletionWithServices",
+          "Description": "Указание кол-ва оказанных услуг при завершении подбора заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "PickUp": {
+                  "SetServices": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PickUpOrderTaskCompletionWithPayments",
+          "Description": "Указание оплаты при завершении подбора заказа в карточке заказа",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "OrderTaskCompletion": {
+                "PickUp": {
+                  "SetPayments": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "CarrierShowingInOrderCard",
+          "Description": "Отображение перевозчика в карточке заказа",
+          "Presets": {
+            "FrontendFeatures": {
+              "ORDER:Card:GeneralInfo": {
+                "Carrier": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "CustomersCostHiddingFromCarrier",
+          "Description": "Скрытие в карточке заказа стоимости перевозки заказа от перевозчика ",
+          "Presets": {
+            "FrontendFeatures": {
+              "ORDER:Card": {
+                "HideCustomersCostFromCarrier": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "BrandTheme",
+          "Description": "Кастомизированное лого и цвет меню в стиле",
+          "Presets": {
+            "FrontendFeatures": {
+              "BrandTheme": {
+                "value": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderCancellingReasons",
+          "Description": "Причины отмены заказов.",
+          "Presets": {
+            "StateChangeReasons": {
+              "CancelReasons": "Any"
+            }
+          }
+        },
+        {
+          "Name": "OrderPendingReasons",
+          "Description": "Причины откладывания заказов.",
+          "Presets": {
+            "StateChangeReasons": {
+              "PendingReasons": "Any"
+            }
+          }
+        },
+        {
+          "Name": "OrderRouteArchivingSettingsRU",
+          "Description": "Настройки архивации заказов и маршрутов RU",
+          "Presets": {
+            "ArchiveSettings": {
+              "ArchiveIsActive": true,
+              "OrderArchive": {
+                "CheckOrderState": true,
+                "OrderArchivePeriod": "5.00:00:00",
+                "StartOrderArchive": true
+              },
+              "OrderComplete": {
+                "OrderCompleteComment": "Технически завершенная заявка",
+                "OrderCompletePeriod": "5.00:00:00",
+                "OrderCompleteStatus": "Cancelled",
+                "StartOrderComplete": true
+              },
+              "RouteArchive": {
+                "RouteArchivePeriod": "5.00:00:00",
+                "StartRouteArchive": true
+              },
+              "RouteComplete": {
+                "RouteCompletePeriod": "5.00:00:00",
+                "StartRouteCompleting": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderRouteArchivingSettingsEN",
+          "Description": "Настройки архивации заказов и маршрутов EN",
+          "Presets": {
+            "ArchiveSettings": {
+              "ArchiveIsActive": true,
+              "OrderArchive": {
+                "CheckOrderState": true,
+                "OrderArchivePeriod": "5.00:00:00",
+                "StartOrderArchive": true
+              },
+              "OrderComplete": {
+                "OrderCompleteComment": "Order was completed automatically",
+                "OrderCompletePeriod": "5.00:00:00",
+                "OrderCompleteStatus": "Cancelled",
+                "StartOrderComplete": true
+              },
+              "RouteArchive": {
+                "RouteArchivePeriod": "5.00:00:00",
+                "StartRouteArchive": true
+              },
+              "RouteComplete": {
+                "RouteCompletePeriod": "5.00:00:00",
+                "StartRouteCompleting": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderStateCheckingDisabledAtArchiving",
+          "Description": "Настройки архивации заказов и маршрутов EN",
+          "Presets": {
+            "ArchiveSettings": {
+              "OrderArchive": {
+                "CheckOrderState": false
+              }
+            }
+          }
+        },
+        {
+          "Name": "StartOrderCompletingDisableAtArchiving",
+          "Description": "Настройки архивации заказов и маршрутов EN",
+          "Presets": {
+            "ArchiveSettings": {
+              "OrderComplete": {
+                "StartOrderComplete": false
+              }
+            }
+          }
+        },
+        {
+          "Name": "CreateBringoOrder",
+          "Description": "Создание заказа в Bringo по интеграции.",
+          "Clients": {
+            "IQOS-C2C": true
+          },
+          "Presets": {
+            "WorkerSubsriberEvents": [
+              {
+                "Triggers": [
+                  {
+                    "Name": "CreateBringoOrder",
+                    "State": "OnItsWay"
+                  }
+                ],
+                "Type": "OnOrderStateChange"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Name": "TMS",
+      "Features": [
+        {
+          "Name": "RoutesManagement",
+          "Description": "Управление маршрутами.",
+          "Presets": {
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewTms",
+                "CanManageRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "LegShowingInRouteTable",
+          "Description": "Отображение тактического плеча маршрута в таблице",
+          "Presets": {
+            "TMSSettings": {
+              "VisibleSettings": {
+                "ShowLeg": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrdersAddressShowingInRouteTable",
+          "Description": "Отображение уникальных адресов заказов маршрута в таблице маршрутов",
+          "Presets": {
+            "TMSSettings": {
+              "VisibleSettings": {
+                "ShowOrdersAddress": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "HubShowingInRouteTable",
+          "Description": "Отображение хаба маршрута в таблице маршрутов",
+          "Presets": {
+            "TMSSettings": {
+              "VisibleSettings": {
+                "ShowHub": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "ForwarderFlowType1RoutesShowing",
+          "Description": "Отображение вкладок в таблице маршрутов. Сценарий 1",
+          "Presets": {
+            "TMSSettings": {
+              "VisibleSetting": [
+                {
+                  "Flow": "CanViewForwarderFlowRoutes",
+                  "RoutesTable": {
+                    "Tabs": [
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [],
+                        "VisibleName": "Все маршруты"
+                      },
+                      {
+                        "CheckBoxes": true,
+                        "FilterByRouteStates": [
+                          "Planned",
+                          "CarrierNotAssigned"
+                        ],
+                        "VisibleName": "Назначить перевозчика"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAssigning"
+                        ],
+                        "VisibleName": "Перевозчик назначается"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAssigned",
+                          "CarrierAccepted",
+                          "PerformerAssigning",
+                          "PerformerAssigned",
+                          "SentToPerformer",
+                          "PerformerAccepted"
+                        ],
+                        "VisibleName": "Перевозчик назначен"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "Started"
+                        ],
+                        "VisibleName": "В пути"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Flow": "CanViewCarrierFlowRoutes",
+                  "RoutesTable": {
+                    "Tabs": [
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [],
+                        "VisibleName": "Все маршруты"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAssigned",
+                          "CarrierAccepted"
+                        ],
+                        "VisibleName": "Назначенные"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "PerformerAssigned"
+                        ],
+                        "VisibleName": "Исполнитель назначен"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "Started"
+                        ],
+                        "VisibleName": "В пути"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewForwarderFlowRoutes",
+                "CanViewCarrierFlowRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "ForwarderFlowType2RoutesShowing",
+          "Description": "Отображение вкладок в таблице маршрутов. Сценарий 2",
+          "Presets": {
+            "TMSSettings": {
+              "VisibleSetting": [
+                {
+                  "Flow": "CanViewForwarderFlowRoutes",
+                  "RoutesTable": {
+                    "Tabs": [
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [],
+                        "VisibleName": "Все маршруты"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "Planned",
+                          "CarrierNotAssigned"
+                        ],
+                        "VisibleName": "Назначить перевозчика"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAssigned"
+                        ],
+                        "VisibleName": "Перевозчик назначен"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAccepted"
+                        ],
+                        "VisibleName": "Перевозчик подтрвеждён"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "PerformerAssigning",
+                          "PerformerAssigned",
+                          "SentToPerformer",
+                          "PerformerAccepted"
+                        ],
+                        "VisibleName": "Водитель назначен"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "Started"
+                        ],
+                        "VisibleName": "В пути"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Flow": "CanViewCarrierFlowRoutes",
+                  "RoutesTable": {
+                    "Tabs": [
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [],
+                        "VisibleName": "Все маршруты"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAssigned"
+                        ],
+                        "VisibleName": "На подтверждение"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "CarrierAccepted"
+                        ],
+                        "VisibleName": "Требуется водитель"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "PerformerAssigning",
+                          "PerformerAssigned",
+                          "SentToPerformer",
+                          "PerformerAccepted"
+                        ],
+                        "VisibleName": "Водитель назначен"
+                      },
+                      {
+                        "CheckBoxes": false,
+                        "FilterByRouteStates": [
+                          "Started"
+                        ],
+                        "VisibleName": "В пути"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewForwarderFlowRoutes",
+                "CanViewCarrierFlowRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "CarrierAcceptingRoute",
+          "Description": "Подтверждение перевозчиком назначения на маршрут",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAccepting": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned"
+                    ]
+                  },
+                  "IsAvailable": true
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAcceptCarrierOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "CarrierRemovingFromRouteByRouteOwner",
+          "Description": "Снятие перевозчика с маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierRemoving": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned",
+                      "CarrierAccepted",
+                      "CarrierRejected",
+                      "PerformerAssigning",
+                      "PerformerNotAssigned",
+                      "PerformerAssigned",
+                      "SentToPerformer",
+                      "PerformerAccepted",
+                      "PerformerRejected"
+                    ]
+                  },
+                  "ByRouteOwner": true
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanRemoveCarrierFromRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "CarrierRejectingRoute",
+          "Description": "Отказ от назначения на маршрут",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierRemoving": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned",
+                      "CarrierAccepted",
+                      "CarrierRejected",
+                      "PerformerAssigning",
+                      "PerformerNotAssigned",
+                      "PerformerAssigned",
+                      "SentToPerformer",
+                      "PerformerAccepted",
+                      "PerformerRejected"
+                    ]
+                  },
+                  "ByCarrier": true
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanRemoveCarrierFromRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "ConsignorShowingInRouteTable",
+          "Description": "Отображение грузоотправителя в таблице маршрутов",
+          "Presets": {
+            "FrontendFeatures": {
+              "RoutesPage:Table:Columns": {
+                "Consignor": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "RouteNumberCreation",
+          "Description": "Нумерация маршрутов",
+          "Presets": {
+            "CreationRouteNumberStrategy": "Any"
+          }
+        },
+        {
+          "Name": "RoutePointClosing",
+          "Description": "Автоматическое завершение точек маршрута при завершении всех заказов маршрута.",
+          "Presets": {
+            "TmsWorkerSettings": {
+              "OrderTaskTriggers": [
+                {
+                  "State": "Completed",
+                  "TriggerName": "RoutePointClosing"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "RouteClosing",
+          "Description": "Автоматическое завершение маршрута при завершении всех точек маршрута.",
+          "Presets": {
+            "TmsWorkerSettings": {
+              "RoutePointTriggers": [
+                {
+                  "State": "Completed",
+                  "TriggerName": "RouteClosing"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "RouteStateChanged&SendRouteToDevice",
+          "Description": "Уведомлении об изменении статуса заказа + отправка маршрутов на мобильные приложения.",
+          "Presets": {
+            "TmsWorkerSettings": {
+              "RouteSubscriberEvents": [
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "routes",
+                      "Queue": null,
+                      "RoutingKey": "stateChanged",
+                      "State": null
+                    },
+                    {
+                      "Exchange": null,
+                      "Queue": "SendRouteToDevice",
+                      "RoutingKey": null,
+                      "State": "PerformerAssigned"
+                    }
+                  ],
+                  "Type": "OnRouteStateChanged"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "CloseFinishedRouteWorker",
+          "Description": "Автоматическое завершение выполненных маршрутов.",
+          "Presets": {
+            "TmsWorkerSettings": {
+              "RouteStateChanged": {
+                "Exchange": null,
+                "Queue": "CloseFinishedRouteWorker",
+                "RoutingKey": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Command Centre",
+      "Features": [
+        {
+          "Name": "ControlCenterShowing",
+          "Description": "Отображение командного центра.",
+          "Presets": {
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewLegacyControlCenter"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "OrdersRoutesFilteringByDateRange",
+          "Description": "Фильтрация заказов и маршрутов по выбранному временному диапазона (дата-дата)",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:Filter:date": {
+                "default": "currentDay",
+                "type": "control",
+                "value": "dateRange"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrdersRoutesFilteringByCurrentDay",
+          "Description": "Фильтрация заказов и маршрутов по выбранной дате",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:Filter:date": {
+                "default": "currentDay",
+                "type": "control",
+                "value": "currentDay"
+              }
+            }
+          }
+        },
+        {
+          "Name": "RouteList&TaskListShowing",
+          "Description": "Отображение списка маршрутов при раскрытии компании и списка назначенных заказов для выбранного маршрута",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:TransportListSource": {
+                "type": "control",
+                "value": "routeList"
+              },
+              "OMS,TMS:TransportDetailSource": {
+                "type": "control",
+                "value": "taskList"
+              }
+            }
+          }
+        },
+        {
+          "Name": "TransportList&RouteListShowing",
+          "Description": "Отображение списка ТС при раскрытии компании и списка назначенных маршрутов для выбранного ТС",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:TransportListSource": {
+                "type": "control",
+                "value": "transportList"
+              },
+              "OMS,TMS:TransportDetailSource": {
+                "type": "control",
+                "value": "routeList"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrdersDistributionStrategiesByPostCode",
+          "Description": "Стратегия распределения заказов по почтовому индексу ",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:DistributionStrategies": {
+                "default": [
+                  "toofficesbypostcode",
+                  "vrpmetis"
+                ],
+                "type": "control",
+                "value": [
+                  "toofficesbypostcode",
+                  "vrpmetis"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrdersDistributionDefaultStrategies",
+          "Description": "Стратегия распределения заказов ",
+          "Presets": {
+            "FrontendFeatures": {
+              "OMS,TMS:DistributionStrategies": {
+                "default": [
+                  "vrpmetis"
+                ],
+                "type": "control",
+                "value": [
+                  "vrpmetis"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "Name": "GateBookingTime",
+          "Description": "Бронирование времени хаба по маршрутам после назначения исполнителя",
+          "Presets": {
+            "FrontendFeatures": {
+              "Gates:ShowingStrategy": {
+                "BookingStatusForCedrus": true,
+                "ServiceTime": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Auto planning",
+      "Features": [
+        {
+          "Name": "CanUseAutoPlanning",
+          "Description": "Отображение вклакди 'Планирование' в меню.",
+          "Presets": {
+            "PermissionMatrix": {
+              "Any": [
+                "CanUseAutoPlanning"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "SameDayPlanning",
+          "Description": "Отправка заказов в автопалнирование. Планирование Same day",
+          "Clients": {
+            "IQOS": true,
+            "IQOSC2C": true
+          },
+          "Presets": {
+            "WorkerSubsriberEvents": [
+              {
+                "Triggers": [
+                  {
+                    "Name": "Autoplanning",
+                    "State": "ReadyForPlanning"
+                  }
+                ],
+                "Type": "OnOrderStateChange"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "WavePlanning",
+          "Description": "Планирование заказов волнами",
+          "Presets": {
+            "AutoplanningSettings": {
+              "CutWorkIntervalByRoutes": true,
+              "DefaultLoadingTime": 20,
+              "IgnoreBusyTransport": false
+            }
+          }
+        },
+        {
+          "Name": "AutocreationOfTrunkRoutesType1",
+          "Description": "Автоматическое создание магистральных маршрутов. Сценарий 1",
+          "Presets": {
+            "AutoplanningSettings": {
+              "RouteCreation": {
+                "Filter": {
+                  "Tags": {
+                    "In": [
+                      {
+                        "Type": "",
+                        "Value": "OrderInRoute"
+                      }
+                    ],
+                    "Not": []
+                  }
+                },
+                "RouteCreation": {
+                  "ShouldCreateLoadRoutePoint": true,
+                  "ShouldUnlinkOrderFromRoutes": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "AutocreationOfTrunkRoutesType2",
+          "Description": "Автоматическое создание магистральных маршрутов. Сценарий 2",
+          "Presets": {
+            "AutoplanningSettings": {
+              "RouteCreation": {
+                "Filter": {
+                  "Tags": {
+                    "In": [],
+                    "Not": []
+                  }
+                },
+                "ShouldCreateLoadRoutePoint": true,
+                "ShouldUnlinkOrderFromRoutes": false
+              }
+            }
+          }
+        },
+        {
+          "Name": "StartLocatioFirstOrder",
+          "Description": "Точка старта маршрута на первом заказе ",
+          "Presets": {
+            "AutoplanningSettings": {
+              "StartLocation": "FirstOrder"
+            }
+          }
+        },
+        {
+          "Name": "StartLocationHub",
+          "Description": "Точка старта маршрута на хабе",
+          "Presets": {
+            "AutoplanningSettings": {
+              "StartLocation": "Hub"
+            }
+          }
+        },
+        {
+          "Name": "EndLocationLastOrder",
+          "Description": "Точка окончания маршрута на последнем заказе",
+          "Presets": {
+            "AutoplanningSettings": {
+              "EndLocation": "LastOrder"
+            }
+          }
+        },
+        {
+          "Name": "EndLocationHub",
+          "Description": "Точка окончания маршрута на хабе",
+          "Presets": {
+            "AutoplanningSettings": {
+              "EndLocation": "Hub"
+            }
+          }
+        },
+        {
+          "Name": "StatusTransitionBeforePlanning",
+          "Description": "Установка статуса планирования перед планированием",
+          "Presets": {
+            "AutoplanningSettings": {
+              "StatusTransition": "BeforePlanning"
+            }
+          }
+        },
+        {
+          "Name": "StatusTransitionAfterPlanning",
+          "Description": "Установка статуса планирования после планированием",
+          "Presets": {
+            "AutoplanningSettings": {
+              "StatusTransition": "AfterPlanning"
+            }
+          }
+        },
+        {
+          "Name": "NotPlannedOrderState",
+          "Description": "Статус не спланированного заказа",
+          "Presets": {
+            "AutoplanningSettings": {
+              "NotPlannedOrderState": "Any"
+            }
+          }
+        },
+        {
+          "Name": "NotAssigningResourcesAfterPlanning",
+          "Description": "Не выставлять ресурсы в маршрут после планирования",
+          "Presets": {
+            "AutoplanningSettings": {
+              "SetResources": false
+            }
+          }
+        },
+        {
+          "Name": "AssigningResourcesAfterPlanning",
+          "Description": "Выставлять ресурсы в маршрут после планирования",
+          "Presets": {
+            "AutoplanningSettings": {
+              "SetResources": true
+            }
+          }
+        },
+        {
+          "Name": "IgnoreScheduleBreaks",
+          "Description": "Игнорирование времени обеда при построении маршрута",
+          "Presets": {
+            "AutoplanningSettings": {
+              "IgnoreScheduleBreaks": true
+            }
+          }
+        },
+        {
+          "Name": "NotIgnoreScheduleBreaks",
+          "Description": "Учёт времени обеда при построении маршрута",
+          "Presets": {
+            "AutoplanningSettings": {
+              "IgnoreScheduleBreaks": false
+            }
+          }
+        },
+        {
+          "Name": "AutoSendingRouteToCourier",
+          "Description": "Автоматическая отправка изменений по маршруту водителю.",
+          "Clients": {
+            "IQOS": true,
+            "IQOS-C2C": true
+          },
+          "Presets": {
+            "TmsWorkerSettings": {
+              "RouteSubscriberEvents": [
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": null,
+                      "Queue": "SendRouteToDevice",
+                      "RoutingKey": null,
+                      "State": "PerformerAssigned"
+                    },
+                    {
+                      "Exchange": null,
+                      "Queue": "CheckCarrierAfterPlanning",
+                      "RoutingKey": null,
+                      "State": "Planned"
+                    },
+                    {
+                      "Exchange": null,
+                      "Queue": "CheckPerformerAfterPlanning",
+                      "RoutingKey": null,
+                      "State": "CarrierAssigned"
+                    }
+                  ],
+                  "Type": "OnRouteStateChanged"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Name": "FiltrationOrdersForPlanningByState",
+          "Description": "Фильтрация заказов при планировании по статусам",
+          "Presets": {
+            "AutoplanningSettings": {
+              "OrderFilter": {
+                "Status": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "FiltrationOrdersForPlanningByExecutionTimeSlot",
+          "Description": "Фильтрация заказов при планировании по таймслотам выполнения",
+          "Presets": {
+            "AutoplanningSettings": {
+              "OrderFilter": {
+                "Time": "ExecutionTime"
+              }
+            }
+          }
+        },
+        {
+          "Name": "FiltrationOrdersForPlanningByLoadTimeSlot",
+          "Description": "Фильтрация заказов при планировании по таймслотам  погрузки ",
+          "Presets": {
+            "AutoplanningSettings": {
+              "OrderFilter": {
+                "Time": "LoadTime"
+              }
+            }
+          }
+        },
+        {
+          "Name": "FiltrationOrdersForPlanningByTag",
+          "Description": "Фильтрация при планировании по тегам заказа",
+          "Presets": {
+            "AutoplanningSettings": {
+              "OrderFilter": {
+                "Tags": {
+                  "In": [],
+                  "Not": [
+                    {
+                      "Type": "",
+                      "Value": "OrderInRoute"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "IncorrectOrderEmailNotificationType1",
+          "Description": "Настройка оповещений на почту при проблемах с заказами. Сценарий 1",
+          "Presets": {
+            "AutoplanningSettings": {
+              "EmailSettings": {
+                "FromAddress": "noreply@atlasdelivery.io",
+                "Sender": "Atlas delivery",
+                "Signature": "Данное сообщение сформировано автоматически, просим Вас не отвечать на него.",
+                "Templates": {
+                  "IncorrectData": {
+                    "Subject": "Atlas. Заказ заполнен некорректно!",
+                    "Text": "Заказ {0.OrderInfo.Number} заполнен некорректно!\n\nПожалуйста, войдите в систему и внесите изменения. {1.FixUrl}"
+                  },
+                  "NotAllocated": {
+                    "Subject": "Atlas. Заказ не распределен!",
+                    "Text": "Заказ {0.OrderInfo.Number} не распределен на курьера!\n\nПожалуйста, войдите в систему и внесите изменения. {1.FixUrl}"
+                  },
+                  "NotGeocoded": {
+                    "Subject": "Atlas. Заказ не геокодирован!",
+                    "Text": "Заказ {0.OrderInfo.Number} не геокордирован!\n\nПожалуйста, войдите в систему и внесите изменения. {1.FixUrl}"
+                  },
+                  "NotPlanned": {
+                    "Subject": "Atlas. Заказ не спланирован!",
+                    "Text": "Заказ {0.OrderInfo.Number} не добавлен в маршрут!\n\nПожалуйста, войдите в систему и внесите изменения. {1.FixUrl}"
+                  },
+                  "Pending": {
+                    "Subject": "Atlas. Заказ отложен!",
+                    "Text": "Заказ {0.OrderInfo.Number} был изменен курьером и требует дальнейшей обработки!\n\nПожалуйста, войдите в систему и внесите изменения. {1.FixUrl}"
+                  }
+                },
+                "TemplateStaticData": {
+                  "FixUrl": "https://unknownenv.atlasdelivery.io/orders"
+                },
+                "ToAddresses": []
+              }
+            }
+          }
+        },
+        {
+          "Name": "ProductRestrictions",
+          "Description": "Ограничения по товарному соседству",
+          "Presets": {
+            "AutoplanningSettings": {
+              "ProductRestrictions": "Any"
+            }
+          }
+        },
+        {
+          "Name": "IgnoreResourceHubId",
+          "Description": "Возможность подбора ресурсов со всех хабов головной компании",
+          "Presets": {
+            "AutoplanningSettings": {
+              "ResourceFilter": {
+                "IgnoreBusyTransport": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "IgnoreBusyTransport",
+          "Description": "Возможность подбора ресурсов только из тех, у которых отсутствуют маршруты на дату планирования",
+          "Presets": {
+            "AutoplanningSettings": {
+              "ResourceFilter": {
+                "IgnoreBusyTransport": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "ShrinkingActivityTimeOnRoutePoint",
+          "Description": "Время на точке не учитывает количество заказов",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "SolverConfiguration": {
+                  "FeatureConfiguration": {
+                    "UseActivityTimeShrinking": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "UseFastRegret",
+          "Description": "Использование ускоренного распределения планировщиком",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "SolverConfiguration": {
+                  "FeatureConfiguration": {
+                    "UseFastRegret": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "UseUnassignedReason",
+          "Description": "Используется определение причины неназначения заказа на маршрут",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "SolverConfiguration": {
+                  "FeatureConfiguration": {
+                    "UseUnassignedReason": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "FewRoutesForResourceCreation",
+          "Description": "Создание нескольких маршрутов для одного ресурса",
+          "Presets": {
+            "AutoplanningSettings": {
+              "GenerateWarehousePickupOrders": true
+            }
+          }
+        },
+        {
+          "Name": "LoadRoutePointCreation",
+          "Description": "Создание точки погрузки для магистрального маршрута",
+          "Presets": {
+            "AutoplanningSettings": {
+              "RouteCreation": {
+                "ShouldCreateLoadRoutePoint": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "AddingAnOrderToAnExistingRoute",
+          "Description": "Добавления заказа в существующий маршрут",
+          "Presets": {
+            "AutoplanningSettings": {
+              "RouteUpdate": {
+                "OrdersAttaching": {
+                  "RouteStates": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "CutRouteByDay",
+          "Description": "Обрезка времени маршрута по суткам",
+          "Presets": {
+            "AutoplanningSettings": {
+              "CutRouteByDay": true
+            }
+          }
+        },
+        {
+          "Name": "DefaultTransportCost",
+          "Description": "Стоимость ТС по умолчанию.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "DefaultTransportCost": "Any"
+            }
+          }
+        },
+        {
+          "Name": "DefaultTakesTime",
+          "Description": "Время на точке по умолчанию.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "DefautTakesTime": "Any"
+            }
+          }
+        },
+        {
+          "Name": "DefaultAtheneSettingsIterations",
+          "Description": "Настройки Athene по умолчанию. Итерации.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "SolverConfiguration": {
+                  "Iterations": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "DefaultAtheneSettingsAtheneApiUrl",
+          "Description": "Настройки Athene по умолчанию. Api url.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneApiUrl": "Any"
+            }
+          }
+        },
+        {
+          "Name": "DefaultAtheneSettingsOsrmUrl",
+          "Description": "Настройки Athene по умолчанию. Osrm url.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "OsrmConfiguration": {
+                  "Url": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "DefaultAtheneSettingsOsrmVersion",
+          "Description": "Настройки Athene по умолчанию. Версия OSRM.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "OsrmConfiguration": {
+                  "Version": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "UnassignedOrderCost",
+          "Description": "Цена нераспределенного заказа.",
+          "Presets": {
+            "AutoplanningSettings": {
+              "AtheneSettings": {
+                "UnassignedOrderCost": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "MaximumTimeEnRouteInSeconds",
+          "Description": "Максимальная продолжительность маршрута в секуднах",
+          "Presets": {
+            "AutoplanningSettings": {
+              "MaximumTimeEnRouteInSeconds": "Any"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Manual carrier/performer assigning",
+      "Features": [
+        {
+          "Name": "ManualCarrierAssigningOnRoute",
+          "Description": "Ручное назначение перевозчика на маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAssigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "Planned",
+                      "CarrierNotAssigned"
+                    ]
+                  },
+                  "Options": {
+                    "Manual": true
+                  }
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignCarrierOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "ManualCarrierReassigningOnRoute",
+          "Description": "Ручное переназначение перевозчика маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierReassigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned",
+                      "CarrierAccepted",
+                      "CarrierRejected",
+                      "PerformerAssigning",
+                      "PerformerNotAssigned",
+                      "PerformerAssigned",
+                      "SentToPerformer",
+                      "PerformerAccepted",
+                      "PerformerRejected"
+                    ]
+                  },
+                  "Options": {
+                    "Manual": true
+                  }
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignCarrierOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "ManualPerformerAssigningOnRoute",
+          "Description": "Ручное назначение исполнителя на маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierReassigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned",
+                      "CarrierAccepted",
+                      "CarrierRejected",
+                      "PerformerAssigning",
+                      "PerformerNotAssigned",
+                      "PerformerAssigned",
+                      "SentToPerformer",
+                      "PerformerAccepted",
+                      "PerformerRejected"
+                    ]
+                  },
+                  "Options": {
+                    "Manual": true
+                  }
+                }
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignPerformerOnRoutes",
+                "CanRemovePerformerOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "SmsNotificationsOnCarrierAssigned",
+          "Description": "Отправка перевозчику SMS о назначении маршрута",
+          "Presets": {
+            "SendSms": true,
+            "AssigningSettings": {
+              "Routes": {
+                "WorkerEvents": [
+                  {
+                    "Triggers": [
+                      {
+                        "Exchange": "carrierAssigned",
+                        "Name": "SmsNotifications",
+                        "RoutingKey": "onRoute",
+                        "Template": "Вам поступила заявка на транспортировку {0.Number}. Зайдите в систему"
+                      }
+                    ],
+                    "Type": "OnCarrierAssigned"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "Name": "PrefillingTonnageRestrictionsWithManualAssigning",
+          "Description": "Предзаполнение ограничений ТС при ручном назначении ресурсов. В фильтр ТС по тоннажу подставляет только тоннаж из маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "PerformerAssigning": {
+                  "Options": {
+                    "TransportAssigningFilterDefaults": {
+                      "Strategy": "Base",
+                      "Strict": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "PrefillingTonnageRestrictionsWithManualAssigningAndConditions",
+          "Description": "Предзаполнение ограничений ТС при ручном назначении ресурсов. В фильтре предзаполняются тоннажи, соответствующие условиям",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "PerformerAssigning": {
+                  "Options": {
+                    "TransportAssigningFilterDefaults": {
+                      "Strategy": "OrdersAndRoutesWeightTypeRange",
+                      "Strict": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Bidding",
+      "Features": [
+        {
+          "Name": "RouteBiddingWithPriceDecreasing",
+          "Description": "Проведение торгов по маршруту (на понижение цены)",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAssigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "Planned",
+                      "CarrierNotAssigned"
+                    ]
+                  },
+                  "AvailableStatesForInternalProcesses": {
+                    "RouteStates": [
+                      "CarrierAssigning"
+                    ]
+                  },
+                  "Options": {
+                    "Bidding": true
+                  }
+                }
+              }
+            },
+            "Bidding": {
+              "RouteAuction": {
+                "IsAvailable": true,
+                "BiddingStrategy": "PriceDecreasing"
+              },
+              "WorkerSettings": {
+                "LotEvents": [
+                  {
+                    "Triggers": [
+                      {
+                        "Exchange": "biddingLots",
+                        "Queue": null,
+                        "RoutingKey": "complete",
+                        "State": null
+                      }
+                    ],
+                    "Type": "OnLotCompleted"
+                  }
+                ]
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignCarrierOnRoutes",
+                "CanCreateBidding",
+                "CanViewActualBets",
+                "CanViewArchiveBets",
+                "CanViewCompletedBidding",
+                "CanViewCreatedBidding",
+                "CanViewStartedBidding",
+                "CanViewBidding",
+                "CanCreateBets"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "RouteLotBetsHistoryGetting",
+          "Description": "Просмотр истории торгов маршрута",
+          "Presets": {
+            "ManualFlowCorrection": {
+              "RouteLotBetsHistoryGetting": {
+                "AvailableStates": {
+                  "LotStates": [
+                    "Completed"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "LotsAddressesListShowing",
+          "Description": "Отображение адресов назначения лота в виде списка",
+          "Presets": {
+            "Bidding": {
+              "VisibleSettings": {
+                "AddressList": {
+                  "type": "list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "RouteBiddingForCarrierReassigning",
+          "Description": "Переназначение перевозчика маршрута через торги",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierReassigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "CarrierAssigned",
+                      "CarrierAccepted",
+                      "CarrierRejected",
+                      "PerformerAssigning",
+                      "PerformerNotAssigned",
+                      "PerformerAssigned",
+                      "SentToPerformer",
+                      "PerformerAccepted",
+                      "PerformerRejected"
+                    ]
+                  },
+                  "Options": {
+                    "Bidding": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "BiddingLotLeadingBetShowing",
+          "Description": "Отображение лидирующей ставки для участников торгов",
+          "Presets": {
+            "Bidding": {
+              "VisibleSettings": {
+                "ShowLeadingBet": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Auto carrier assigning",
+      "Features": [
+        {
+          "Name": "AutoCarrierAssigningOnRouteWithoutPrice",
+          "Description": "Автоматическое назначение перевозчика на маршрут без учёта ставки",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAssigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "Planned",
+                      "CarrierNotAssigned"
+                    ]
+                  },
+                  "Options": {
+                    "Auto": true
+                  }
+                },
+                "CarrierQueueSettings": {
+                  "Strategy": "PricelessLoyalty"
+                }
+              }
+            },
+            "TacticalLegsSettings": {
+              "SubscriberEvents": [
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegAllocation",
+                      "RoutingKey": "resolving"
+                    }
+                  ],
+                  "Type": "OnAllocationResolving"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegAllocation",
+                      "RoutingKey": "stateChanged"
+                    }
+                  ],
+                  "Type": "OnAllocationStateChanged"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "changed"
+                    }
+                  ],
+                  "Type": "OnChanged"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "created"
+                    }
+                  ],
+                  "Type": "OnCreated"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "deleted"
+                    }
+                  ],
+                  "Type": "OnDeleted"
+                }
+              ]
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignCarrierOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AutoCarrierAssigningOnRouteWithPrice",
+          "Description": "Автоматическое назначение перевозчика на маршрут с учётом ставки",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAssigning": {
+                  "AvailableStates": {
+                    "RouteStates": [
+                      "Planned",
+                      "CarrierNotAssigned"
+                    ]
+                  },
+                  "Options": {
+                    "Auto": true
+                  }
+                },
+                "CarrierQueueSettings": {
+                  "Strategy": "BestPrice"
+                }
+              }
+            },
+            "TacticalLegsSettings": {
+              "SubscriberEvents": [
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegAllocation",
+                      "RoutingKey": "resolving"
+                    }
+                  ],
+                  "Type": "OnAllocationResolving"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegAllocation",
+                      "RoutingKey": "stateChanged"
+                    }
+                  ],
+                  "Type": "OnAllocationStateChanged"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "changed"
+                    }
+                  ],
+                  "Type": "OnChanged"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "created"
+                    }
+                  ],
+                  "Type": "OnCreated"
+                },
+                {
+                  "Triggers": [
+                    {
+                      "Exchange": "tacticalLegs",
+                      "RoutingKey": "deleted"
+                    }
+                  ],
+                  "Type": "OnDeleted"
+                }
+              ]
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanAssignCarrierOnRoutes"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AutoCarrierRemovingFromRoute",
+          "Description": "Автоматическое снятие перевозчика с неподтверждённого маршрута",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAccepting": {
+                  "AvailableStatesForApprovalAction": {
+                    "RouteStates": [
+                      "CarrierAccepted",
+                      "PerformerAssigned"
+                    ]
+                  },
+                  "IsAvailable": true,
+                  "WaitingTimeInMinutes": 60
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "AutoAssigningWithCheckRestrictions",
+          "Description": "Проверка перевозчиков на удовлетворение ограничений маршрута:<br/>типа погрузи/разгрузки;<br/>типа пропуска",
+          "Presets": {
+            "AssigningSettings": {
+              "Routes": {
+                "CarrierAssigning": {
+                  "RestrictionStages": [
+                    {
+                      "Name": "CheckRouteTransportRestrictions",
+                      "Strategies": [
+                        {
+                          "Name": "LoadUnloadTypes",
+                          "OnFullInclusive": "NextStrategies",
+                          "OnEmptyPredicate": "NextStrategies",
+                          "OnError": "Break"
+                        },
+                        {
+                          "Name": "ZoneRestrictions",
+                          "OnFullInclusive": "NextStage",
+                          "OnEmptyPredicate": "NextStage",
+                          "OnError": "Break"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "GMS",
+      "Features": [
+        {
+          "Name": "GateManagementWithUI",
+          "Description": "Отображение интерфейс GMS",
+          "Presets": {
+            "FrontendFeatures": {
+              "Layout:Navigation": {
+                "NavigationStrategy": "CedRus",
+                "ShowGateModule": true
+              },
+              "GateBooking:Page": {
+                "BookingCalendarStep": 60
+              }
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanCreateBooking",
+                "CanDeleteBooking",
+                "CanUpdateBooking",
+                "CanViewGateBooking"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "BookingStatusForCedrus",
+          "Description": "Отображение статусов бронирований согласно процессу Седрус",
+          "Presets": {
+            "FrontendFeatures": {
+              "Gates:ShowingStrategy": {
+                "BookingStatusForCedrus": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "GateBookingCreatingBySelectedTime",
+          "Description": "Бронирование времени ворот по выбранному перевозчиков времени ",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "Creation": {
+                  "Strategy": "AvailableSlots"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "GateBookingAutocreatingAfterPerformerAssigning",
+          "Description": "Автоматическое бронирование времени ворот хаба при назначении ТС на маршрут",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "Creation": {
+                  "OneRouteOneBooking": true,
+                  "Strategy": "LatestTimeslot"
+                },
+                "CreationRequiredRouteStates": [
+                  "PerformerAssigned",
+                  "SentToPerformer",
+                  "PerformerAccepted",
+                  "Planned",
+                  "CarrierAssigning",
+                  "CarrierNotAssigned",
+                  "CarrierAssigned",
+                  "CarrierAccepted",
+                  "CarrierRejected"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "Name": "DriverArrivalConfirmationInBooking",
+          "Description": "Подтверждение прибытия ТС на хаб в карточке бронирования",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "DriverArrivalConfirmation": {
+                  "AvailableStates": {
+                    "RoutePointStates": [
+                      "Created"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderLoadTimeSlotUpdatingByBooking",
+          "Description": "Обновление периода погрузки заказов, связанных с точкой погрузки, после создания бронирования",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "Creation": {
+                  "UpdatingOrderLoadTimeSlot": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "Displays7Gates",
+          "Description": "Отображение 7 ворот на одной странице в расписании бронирований",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "DisplaySettings": {
+                  "GatesPerPage": 7
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "HubLoadUnloadServiceTimeShowing",
+          "Description": "Отображение полей в карточке хаба для указания длительности сервисных мероприятий до и после погрузки/разгрузки",
+          "Presets": {
+            "FrontendFeatures": {
+              "Gates:ShowingStrategy": {
+                "ServiceTime": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "DynamicAvailableSlotsRoundingTo5MinutesCeiling",
+          "Description": "Округление предложений начала бронирования до значения кратного 5 минутам",
+          "Presets": {
+            "Gates": {
+              "Bookings": {
+                "Creation": {
+                  "DynamicAvailableSlotsRoundingStrategy": "X5MinutesCeiling"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Incidents",
+      "Features": [
+        {
+          "Name": "ShowingIncidentsUI",
+          "Description": "Отображение UI для управления инцидентами.",
+          "Presets": {
+            "IncidentSettings": {
+              "IsAvailable": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Karma",
+      "Features": [
+        {
+          "Name": "LimitedKarmaStrategy",
+          "Description": "Расчёт кармы по стратегии от 0 до 100",
+          "Presets": {
+            "KarmaSettings": {
+              "KarmaUpdateStrategy": "LimitedKarma"
+            }
+          }
+        },
+        {
+          "Name": "AbsoluteKarmaStrategy",
+          "Description": "Расчёт кармы как накопительной и без ограничений",
+          "Presets": {
+            "KarmaSettings": {
+              "KarmaUpdateStrategy": "AbsoluteKarma"
+            }
+          }
+        },
+        {
+          "Name": "SingleKarmaForSimilarOrder",
+          "Description": "Начисление кармы только по одному заказу из нескольких схожих в маршруте",
+          "Presets": {
+            "KarmaSettings": {
+              "OrderSimilarity": {
+                "Distance": 1500
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Mobile APP",
+      "Features": [
+        {
+          "Name": "ShowAttachPhotosOnTaskReject",
+          "Description": "Возможность прикрепить фото при отмене заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowAttachPhotosOnTaskReject": true
+            }
+          }
+        },
+        {
+          "Name": "MinCountPhotosOnTaskReject",
+          "Description": "Минимальное количество фото для отмены заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "MinCountPhotosOnTaskReject": "Any"
+            }
+          }
+        },
+        {
+          "Name": "MaxAttachPhotosCountReject",
+          "Description": "Максимальное количество фото для отмены заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "MaxAttachPhotosCountReject": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ShowCommentOnTaskReject",
+          "Description": "Возможность прикрепить комментарий при отмене заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowCommentOnTaskReject": true
+            }
+          }
+        },
+        {
+          "Name": "MinLengthCommentOnTaskReject",
+          "Description": "Минимальная длина комментария при отмене заказа в символах",
+          "Presets": {
+            "MobileAppPresets": {
+              "MinLengthCommentOnTaskReject": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ShowAttachPhotosOnTaskComplete",
+          "Description": "Возможность прикрепить фото при завершении заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowAttachPhotosOnTaskComplete": true
+            }
+          }
+        },
+        {
+          "Name": "MinCountPhotosOnTaskComplete",
+          "Description": "Минимальное количество фото для завершения заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "MinCountPhotosOnTaskComplete": "Any"
+            }
+          }
+        },
+        {
+          "Name": "MaxAttachPhotosCountComplete",
+          "Description": "Максимальное количество фото для завершения заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "MaxAttachPhotosCountComplete": "Any"
+            }
+          }
+        },
+        {
+          "Name": "EnableDoneButtonNearLocationOnly",
+          "Description": "Кнопка \"Завершить\" активна только в радиусе N метров от точки доставки",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableDoneButtonNearLocationOnly": true
+            }
+          }
+        },
+        {
+          "Name": "EnableDoneButtonDistanceMeters",
+          "Description": "Радиус зоны доставки в метрах",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableDoneButtonDistanceMeters": "Any"
+            }
+          }
+        },
+        {
+          "Name": "TaskZoneRadiusMeters",
+          "Description": "Радиус зоны доставки для расчетов событий въезда/выезда в зону задачи",
+          "Presets": {
+            "MobileAppPresets": {
+              "TaskZoneRadiusMeters": "Any"
+            }
+          }
+        },
+        {
+          "Name": "EnablePartlyLoad",
+          "Description": "Возможность частичной загрузки заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnablePartlyLoad": true
+            }
+          }
+        },
+        {
+          "Name": "EnablePartlyDelivery",
+          "Description": "Возможность частичной доставки заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnablePartlyDelivery": true
+            }
+          }
+        },
+        {
+          "Name": "CanReturnTaskToActive",
+          "Description": "Возможность вернуть отмененную задачу в активные",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanReturnTaskToActive": true
+            }
+          }
+        },
+        {
+          "Name": "EnableUserNameOnCompleteTask",
+          "Description": "Необходимость обяззательного ввода имени клиента при завершении заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableUserNameOnCompleteTask": true
+            }
+          }
+        },
+        {
+          "Name": "EnableUserSignOnCompleteTask",
+          "Description": "Необходимость обязательного ввода подписи клиента при завершении заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableUserSignOnCompleteTask": true
+            }
+          }
+        },
+        {
+          "Name": "EnableRatingOnCompleteTask",
+          "Description": "Необходимость обязательного ввода оценки сервиса при завершении заказа",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableRatingOnCompleteTask": true
+            }
+          }
+        },
+        {
+          "Name": "ApprovedTaskToInProgress",
+          "Description": "Перевод задачи в статус \"в работе\" после получения",
+          "Presets": {
+            "MobileAppPresets": {
+              "ApprovedTaskToInProgress": true
+            }
+          }
+        },
+        {
+          "Name": "EnableTaskRoute",
+          "Description": "Группировка задач по маршрутам",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableTaskRoute": true
+            }
+          }
+        },
+        {
+          "Name": "EnableRoutePointLoading",
+          "Description": "Необходимость прожать кнопку \"Прибыл на погрузке\".",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableRoutePointLoading": true
+            }
+          }
+        },
+        {
+          "Name": "EnableStartUntilLoadAllTasks",
+          "Description": "Возможность завершать задачи сразу после погрузки",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableStartUntilLoadAllTasks": true
+            }
+          }
+        },
+        {
+          "Name": "ShowPaymentInfoLabel",
+          "Description": "Отображение в заказе информации о статусе оплаты",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowPaymentInfoLabel": true
+            }
+          }
+        },
+        {
+          "Name": "CanPostponeTask",
+          "Description": "Перенос задачи на другую дату.",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanPostponeTask": true
+            }
+          }
+        },
+        {
+          "Name": "LinkType",
+          "Description": "Название ссылки из поля linkNote",
+          "Presets": {
+            "MobileAppPresets": {
+              "LinkType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ShowWeightProduct",
+          "Description": "Отображение веса товаров вместо цены в детальной информации о заказе.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowWeightProduct": true
+            }
+          }
+        },
+        {
+          "Name": "RejectStatusSend",
+          "Description": "Значение статуса, который передается при отмене заказа.",
+          "Presets": {
+            "MobileAppPresets": {
+              "RejectStatusSend": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ShowDetailsOfTaskDelivery",
+          "Description": "Включает вкладки \"План\", \"Погрузка\" и \"Доставка\" на экране детальной информации о заказе",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowDetailsOfTaskDelivery": true
+            }
+          }
+        },
+        {
+          "Name": "CanLoadTaskFromAnyRoute",
+          "Description": "Возможность погрузить любую задачу из любого маршрута.",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanLoadTaskFromAnyRoute": true
+            }
+          }
+        },
+        {
+          "Name": "SkipLoadStep",
+          "Description": "Кнопка подтверждения на экране частичной отображается как “Завершить“ для задач в состоянии “Подтверждена“ и “Погружена“.",
+          "Presets": {
+            "MobileAppPresets": {
+              "SkipLoadStep": true
+            }
+          }
+        },
+        {
+          "Name": "PaymentAgent",
+          "Description": "Отображение информации о платежном агенте. Используется только при оплате.",
+          "Presets": {
+            "MobileAppPresets": {
+              "PaymentAgent": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ShowPlannedTimeSlot",
+          "Description": "Отображение таймслота заказа (вместо номера) на экране со списком заказов.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowPlannedTimeSlot": true
+            }
+          }
+        },
+        {
+          "Name": "StringPlannedTaskBlock",
+          "Description": "Название блока запланированных задач.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringPlannedTaskBlock": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringApproveTaskButton",
+          "Description": "Название кнопки погрузки.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringApproveTaskButton": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringTaskDeliveryType",
+          "Description": "Название операции для задач на доставку (Delivery)",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskDeliveryType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringTaskPickUpType",
+          "Description": "Название операции для задач на забор (Pick Up)",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskPickUpType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "RejectTaskReasons",
+          "Description": "Список причин отмены доставки, причина содержит в себе :\n\nАтрибут photoIsRequired (Boolean) - обязательно ли рикреплять фото при выборе этой причины\nАтрибут reasonName (LocalizedString) - локализованное название причины отмены доставки",
+          "Presets": {
+            "MobileAppPresets": {
+              "RejectTaskReasons": "Any"
+            }
+          }
+        },
+        {
+          "Name": "TimeSlotChangeReasons",
+          "Description": "Список причин переноса доставки на другую дату, причина содержит в себе :\n\nАтрибут reasonName (LocalizedString) - локализованное название причины отмены доставки",
+          "Presets": {
+            "MobileAppPresets": {
+              "TimeSlotChangeReasons": "Any"
+            }
+          }
+        },
+        {
+          "Name": "RefuseReasons",
+          "Description": "Список причин отказа от доставки, причина содержит в себе :\n\nАтрибут reasonName (LocalizedString) - локализованное название причины отмены доставки",
+          "Presets": {
+            "MobileAppPresets": {
+              "RefuseReasons": "Any"
+            }
+          }
+        },
+        {
+          "Name": "NeedEnterProductSerialNumberOnComplete",
+          "Description": "Возможность проверки ввода серийных номеров продукта на этапе завершения задачи.",
+          "Presets": {
+            "MobileAppPresets": {
+              "NeedEnterProductSerialNumberOnComplete": true
+            }
+          }
+        },
+        {
+          "Name": "ProductSerialNumberFormat",
+          "Description": "Регулярное выражение для валидации серийного номера продукта.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ProductSerialNumberFormat": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ProductSerialNumberBarCodeType",
+          "Description": "Список ожидаемых форматов бар-кодов для сканирования серийных номеров",
+          "Presets": {
+            "MobileAppPresets": {
+              "ProductSerialNumberBarCodeType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "ProductSerialNumberBarCodeMask",
+          "Description": "Регулярное выражение для вырезания серийного номера из бар-кода.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ProductSerialNumberBarCodeMask": "Any"
+            }
+          }
+        },
+        {
+          "Name": "CanCompleteTaskWithoutAnyProductSerialNumber",
+          "Description": "Возможность не вводить все серийные номера при завершении задачи.",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanCompleteTaskWithoutAnyProductSerialNumber": true
+            }
+          }
+        },
+        {
+          "Name": "NeedGroupSingleAddressTasksOnComplete",
+          "Description": "Необходимость группировать задачи на один адрес при завершении заказа.",
+          "Presets": {
+            "MobileAppPresets": {
+              "NeedGroupSingleAddressTasksOnComplete": true
+            }
+          }
+        },
+        {
+          "Name": "CanChangeProductSerialNumber",
+          "Description": "Возможность изменять серийные номера на экране детальной информации о заказе.",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanChangeProductSerialNumber": true
+            }
+          }
+        },
+        {
+          "Name": "NeedGroupPendingAndRejectedTasks",
+          "Description": "Группировка задач в статусах Pending и Rejected на экране списка задач.",
+          "Presets": {
+            "MobileAppPresets": {
+              "NeedGroupPendingAndRejectedTasks": true
+            }
+          }
+        },
+        {
+          "Name": "CanRejectPendingTasks",
+          "Description": "Возможность отменять задачи в статусе Pending.",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanRejectPendingTasks": true
+            }
+          }
+        },
+        {
+          "Name": "EnableCompleteTasks",
+          "Description": "Возможность завершить задачу.",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableCompleteTasks": true
+            }
+          }
+        },
+        {
+          "Name": "StringTaskRejectBlock",
+          "Description": "Заголовок блока задач со статусом Rejected.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskRejectBlock": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringTaskPendingBlock",
+          "Description": "Заголовок блока задач со статусом Pending.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskPendingBlock": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringTaskRejectType",
+          "Description": "Заголовок Rejected статуса задачи.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskRejectType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringTaskPendingType",
+          "Description": "Заголовок Pending статуса задачи.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringTaskPendingType": "Any"
+            }
+          }
+        },
+        {
+          "Name": "CanRefuseTask",
+          "Description": "Возможность отказаться от доставки (перенести на другого водителя).",
+          "Presets": {
+            "MobileAppPresets": {
+              "CanRefuseTask": true
+            }
+          }
+        },
+        {
+          "Name": "StatesAllowedToRefuse",
+          "Description": "Статусы доставки, в которых возможен отказ от доставки (перенос на другого водителя).",
+          "Presets": {
+            "MobileAppPresets": {
+              "StatesAllowedToRefuse": "Any"
+            }
+          }
+        },
+        {
+          "Name": "EnableArriveToHubButtonDistanceMeters",
+          "Description": "Радиус зоны прибытия на склад в метрах. Используется для активации кнопки \"Прибыл на погрузку\".",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnableArriveToHubButtonDistanceMeters": "Any"
+            }
+          }
+        },
+        {
+          "Name": "NeedSendReachedTheHubAutomatically",
+          "Description": "Отправка события прибытия и убытия со склада в автоматическом режиме.",
+          "Presets": {
+            "MobileAppPresets": {
+              "NeedSendReachedTheHubAutomatically": true
+            }
+          }
+        },
+        {
+          "Name": "SquareIconsOnMapEnabled",
+          "Description": "Отображение квадратных иконок на карте вместо круглых.",
+          "Presets": {
+            "MobileAppPresets": {
+              "SquareIconsOnMapEnabled": true
+            }
+          }
+        },
+        {
+          "Name": "ReadPackageCodeOnComplete",
+          "Description": "Необходимость сканирования штрихкодов упаковок.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ReadPackageCodeOnComplete": true
+            }
+          }
+        },
+        {
+          "Name": "EnablePackagePartlyCodeRead",
+          "Description": "Возможность завершить заказ, когда считаны не все упаковки.",
+          "Presets": {
+            "MobileAppPresets": {
+              "EnablePackagePartlyCodeRead": true
+            }
+          }
+        },
+        {
+          "Name": "ShowPackageLastCodeChars",
+          "Description": "Количество отображаемый символов штрихкода в упаковке.",
+          "Presets": {
+            "MobileAppPresets": {
+              "ShowPackageLastCodeChars": "Any"
+            }
+          }
+        },
+        {
+          "Name": "StringApprovePackageButton",
+          "Description": "Наименование кнопки подтверждения сканирования упаковок.",
+          "Presets": {
+            "MobileAppPresets": {
+              "StringApprovePackageButton": "Any"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "CX",
+      "Features": [
+        {
+          "Name": "UseTrackAndTrace",
+          "Description": "Использование ТнТ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "LifetimePreset": {
+                "UseTrackAndTrace": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationOnTimeByOrderState",
+          "Description": "Создание ТнТ по статусу заказа в заданное время",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": "Any",
+                "TntCreation": {
+                  "OrderCreationOptions": {
+                    "States": "Any"
+                  }
+                },
+                "UseTimeForTnTCreate": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationOnTimeByRouteState",
+          "Description": "Создание ТнТ по статусу маршрута в заданное время",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": "Any",
+                "TntCreation": {
+                  "RouteCreationOptions": {
+                    "States": "Any"
+                  }
+                },
+                "UseTimeForTnTCreate": true
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationByOrderStateWithoutRestrictions",
+          "Description": "Формирование ТнТ по статусу заказа без ограничений по времени",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": [],
+                "TntCreation": {
+                  "OrderCreationOptions": {
+                    "States": [
+                      "OnItsWay"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationByOrderStateWithRestrictions",
+          "Description": "Формирование ТнТ по статусу заказа с ограничениями по времени",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": [],
+                "TntCreation": {
+                  "OrderCreationOptions": {
+                    "RestrictedPeriods": "Any",
+                    "States": "Any"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationByRouteStateWithoutRestrictions",
+          "Description": "Формирование ТнТ по статусу маршрута без ограничений по времени",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": [],
+                "TntCreation": {
+                  "RouteCreationOptions": {
+                    "States": [
+                      "PerformerAssigned"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "TnTCreationByRouteStateWithRestrictions",
+          "Description": "Формирование ТнТ по статусу маршрута с ограничениями по времени",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": [],
+                "TntCreation": {
+                  "RouteCreationOptions": {
+                    "RestrictedPeriods": "Any",
+                    "States": "Any"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "SendingRatingSmsWithoutRestrictions",
+          "Description": "Отправка СМС для установки рейтинга без ограничений по времени",
+          "Presets": {
+            "RatingSMSOptions": {
+              "RatingFromTnT": true,
+              "TimeForRatingIndicationAfterComplete": "Any"
+            }
+          }
+        },
+        {
+          "Name": "SendingRatingSmsWithRestrictions",
+          "Description": "Отправка СМС для установки рейтинга с ограничениями по времени",
+          "Presets": {
+            "RatingSMSOptions": {
+              "RatingFromTnT": true,
+              "RestrictedPeriods": "Any",
+              "TimeForRatingIndicationAfterComplete": "Any"
+            }
+          }
+        },
+        {
+          "Name": "TextForRatingInfoSms",
+          "Description": "Текст для СМС с просьбой оценить доставку ",
+          "Presets": {
+            "RatingSMSOptions": {
+              "TextForRatingInfoSms": "Any"
+            }
+          }
+        },
+        {
+          "Name": "SendTnTAfterCompletionForRatingAdd",
+          "Description": "Отправка СМС с просьбой оценить доставку без предварительной отправки ТНТ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "NotificationTime": [],
+                "TntCreation": {
+                  "OrderCreationOptions": {
+                    "States": [
+                      "Completed"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "TimeSlotCalculation",
+          "Description": "Уменьшение таймслота доставки",
+          "Presets": {
+            "CalculateDeliveryTimeSlot": {
+              "CalculateDeliveryTime": true,
+              "LowerBorder": "01:00:00",
+              "UpperBorder": "01:00:00"
+            }
+          }
+        },
+        {
+          "Name": "TntTextPatterns",
+          "Description": "Тексты для СМС с ТнТ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "TntTextPatterns": {
+                  "DeliveryDay": "Any",
+                  "DeliveryLongerThanDay": "Any",
+                  "PickupDay": "Any",
+                  "PickupLongerThanDay": "Any"
+                }
+              }
+            }
+          }
+        },
+        {
+          "Name": "ViewUrlForTnT",
+          "Description": "Ссылка на ТнТ ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "NotificationPreset": {
+                "ViewUrlForTnT": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderInfoOrRatingStageIsDefaultStage",
+          "Description": "Экран заказа и оценки является основным",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "ViewPreset": {
+                "DefaultStage": "OrderInfoOrRatingStage"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OrderInfoStageIsDefaultStage",
+          "Description": "Экран заказа является основным",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "ViewPreset": {
+                "DefaultStage": "OrderInfoStage"
+              }
+            }
+          }
+        },
+        {
+          "Name": "TrackAndTraceLocale",
+          "Description": "Локаль в ТнТ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "ViewPreset": {
+                "Locale": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "TrackAndTraceTimeZone",
+          "Description": "Таймзона в ТнТ",
+          "Presets": {
+            "TrackAndTraceSettings": {
+              "ViewPreset": {
+                "TimeZone": "Any"
+              }
+            }
+          }
+        },
+        {
+          "Name": "OmsTrackAndTraceChanging",
+          "Description": "Обновление ТнТ при изменении заказа",
+          "Presets": {
+            "WorkerSubsriberEvents": [
+              {
+                "Triggers": [
+                  {
+                    "Name": "OmsTrackAndTraceChanging"
+                  }
+                ],
+                "Type": "OnOrderUpdate"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "OmsTrackAndTraceFullChange",
+          "Description": "Полное обновление ТнТ при изменении статуса",
+          "Presets": {
+            "WorkerSubsriberEvents": [
+              {
+                "Triggers": [
+                  {
+                    "Name": "OmsTrackAndTraceFullChange",
+                    "States": [
+                      "ReadyForPlanning",
+                      "Planned"
+                    ]
+                  }
+                ],
+                "Type": "OnOrderStateChange"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "TmsTrackAndTraceChange",
+          "Description": "Обновление ТнТ при изменении маршрута",
+          "Presets": {
+            "TmsWorkerSettings": {
+              "RoutePointTriggers": [
+                {
+                  "State": null,
+                  "TriggerName": "TmsTrackAndTraceChange"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Analytics",
+      "Features": [
+        {
+          "Name": "AvailableAnalytics",
+          "Description": "Отображение дашборда с логистическими показателями.",
+          "Presets": {
+            "BIAnalyticsSettings": {
+              "IsAvailable": true
+            },
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewAnalytics"
+              ]
+            }
+          }
+        },
+        {
+          "Name": "AnalyticsCalculationPeriodInMinutes",
+          "Description": "Время обновления расчёта показателей, мин.",
+          "Presets": {
+            "BIAnalyticsSettings": {
+              "CalculationPeriodInMinutes": "Any"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Reports",
+      "Features": [
+        {
+          "Name": "Reporting",
+          "Description": "Настройки отчётов",
+          "Presets": {
+            "ReportSettings": "Any",
+            "PermissionMatrix": {
+              "Any": [
+                "CanViewReporting"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

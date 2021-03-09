@@ -1,0 +1,7 @@
+{
+  "RatingSMSOptions": {
+    "RatingFromTnT": true,
+    "RestrictedPeriods": "Any",
+    "TimeForRatingIndicationAfterComplete": "Any"
+  }
+}

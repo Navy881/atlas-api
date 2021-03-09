@@ -1,0 +1,7 @@
+{
+  "FrontendFeatures": {
+    "ORDER:Card:GeneralInfo": {
+      "Carrier": true
+    }
+  }
+}

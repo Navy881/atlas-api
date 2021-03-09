@@ -1,0 +1,12 @@
+{
+  "TrackAndTraceSettings": {
+    "NotificationPreset": {
+      "TntTextPatterns": {
+        "DeliveryDay": "Any",
+        "DeliveryLongerThanDay": "Any",
+        "PickupDay": "Any",
+        "PickupLongerThanDay": "Any"
+      }
+    }
+  }
+}

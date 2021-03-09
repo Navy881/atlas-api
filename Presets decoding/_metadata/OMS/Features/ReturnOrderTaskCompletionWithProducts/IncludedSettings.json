@@ -1,0 +1,9 @@
+{
+  "ManualFlowCorrection": {
+    "OrderTaskCompletion": {
+      "Return": {
+        "SetProducts": true
+      }
+    }
+  }
+}

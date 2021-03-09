@@ -1,0 +1,13 @@
+{
+  "TrackAndTraceSettings": {
+    "NotificationPreset": {
+      "NotificationTime": [],
+      "TntCreation": {
+        "RouteCreationOptions": {
+          "RestrictedPeriods": "Any",
+          "States": "Any"
+        }
+      }
+    }
+  }
+}

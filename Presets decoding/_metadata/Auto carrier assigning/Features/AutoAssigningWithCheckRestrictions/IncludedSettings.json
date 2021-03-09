@@ -1,0 +1,27 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierAssigning": {
+        "RestrictionStages": [
+          {
+            "Name": "CheckRouteTransportRestrictions",
+            "Strategies": [
+              {
+                "Name": "LoadUnloadTypes",
+                "OnFullInclusive": "NextStrategies",
+                "OnEmptyPredicate": "NextStrategies",
+                "OnError": "Break"
+              },
+              {
+                "Name": "ZoneRestrictions",
+                "OnFullInclusive": "NextStage",
+                "OnEmptyPredicate": "NextStage",
+                "OnError": "Break"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

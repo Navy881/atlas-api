@@ -1,0 +1,12 @@
+{
+  "FrontendFeatures": {
+    "OMS,TMS:TransportListSource": {
+      "type": "control",
+      "value": "transportList"
+    },
+    "OMS,TMS:TransportDetailSource": {
+      "type": "control",
+      "value": "routeList"
+    }
+  }
+}

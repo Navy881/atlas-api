@@ -1,0 +1,43 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierAssigning": {
+        "AvailableStates": {
+          "RouteStates": [
+            "Planned",
+            "CarrierNotAssigned"
+          ]
+        },
+        "AvailableStatesForInternalProcesses": {
+          "RouteStates": [
+            "CarrierAssigning"
+          ]
+        },
+        "Options": {
+          "Bidding": true
+        }
+      }
+    }
+  },
+  "Bidding": {
+    "RouteAuction": {
+      "IsAvailable": true,
+      "BiddingStrategy": "PriceDecreasing"
+    },
+    "WorkerSettings": {
+      "LotEvents": [
+        {
+          "Triggers": [
+            {
+              "Exchange": "biddingLots",
+              "Queue": null,
+              "RoutingKey": "complete",
+              "State": null
+            }
+          ],
+          "Type": "OnLotCompleted"
+        }
+      ]
+    }
+  }
+}

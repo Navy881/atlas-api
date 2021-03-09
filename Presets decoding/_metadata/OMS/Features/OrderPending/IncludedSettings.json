@@ -1,0 +1,14 @@
+{
+  "ManualFlowCorrection": {
+    "OrderPending": {
+      "AvailableStates": {
+        "OrderStates": [
+          "Planning",
+          "Planned",
+          "Loaded",
+          "OnItsWay"
+        ]
+      }
+    }
+  }
+}

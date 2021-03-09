@@ -1,0 +1,11 @@
+{
+  "AutoplanningSettings": {
+    "AtheneSettings": {
+      "SolverConfiguration": {
+        "FeatureConfiguration": {
+          "UseUnassignedReason": true
+        }
+      }
+    }
+  }
+}

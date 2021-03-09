@@ -1,0 +1,22 @@
+{
+  "AssigningSettings": {
+    "Routes": {
+      "CarrierRemoving": {
+        "AvailableStates": {
+          "RouteStates": [
+            "CarrierAssigned",
+            "CarrierAccepted",
+            "CarrierRejected",
+            "PerformerAssigning",
+            "PerformerNotAssigned",
+            "PerformerAssigned",
+            "SentToPerformer",
+            "PerformerAccepted",
+            "PerformerRejected"
+          ]
+        },
+        "ByRouteOwner": true
+      }
+    }
+  }
+}

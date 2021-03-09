@@ -1,0 +1,20 @@
+{
+  "AllocationSettings": {
+    "AllocationStages": [
+      {
+        "ManualCorrection": {
+          "Display": true,
+          "Enabled": true
+        },
+        "Name": "SetHub",
+        "Strategies": [
+          {
+            "Name": "GeoTag",
+            "OnEmptyResult": "Break",
+            "OnMultipleResult": "Break"
+          }
+        ]
+      }
+    ]
+  }
+}

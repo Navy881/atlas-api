@@ -1,0 +1,7 @@
+{
+  "OMSSettings": {
+    "OrdersTable": {
+      "ShowExternalId": true
+    }
+  }
+}

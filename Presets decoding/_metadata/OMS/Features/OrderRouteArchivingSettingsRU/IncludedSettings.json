@@ -1,0 +1,24 @@
+{
+  "ArchiveSettings": {
+    "ArchiveIsActive": true,
+    "OrderArchive": {
+      "CheckOrderState": true,
+      "OrderArchivePeriod": "5.00:00:00",
+      "StartOrderArchive": true
+    },
+    "OrderComplete": {
+      "OrderCompleteComment": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043d\u0430\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+      "OrderCompletePeriod": "5.00:00:00",
+      "OrderCompleteStatus": "Cancelled",
+      "StartOrderComplete": true
+    },
+    "RouteArchive": {
+      "RouteArchivePeriod": "5.00:00:00",
+      "StartRouteArchive": true
+    },
+    "RouteComplete": {
+      "RouteCompletePeriod": "5.00:00:00",
+      "StartRouteCompleting": true
+    }
+  }
+}

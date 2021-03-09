@@ -1,0 +1,12 @@
+{
+  "WorkerSubsriberEvents": [
+    {
+      "Triggers": [
+        {
+          "Name": "OmsTrackAndTraceChanging"
+        }
+      ],
+      "Type": "OnOrderUpdate"
+    }
+  ]
+}

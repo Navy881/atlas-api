@@ -1,0 +1,23 @@
+{
+  "AllocationSettings": {
+    "AllocationStages": [
+      {
+        "DefaultCode": "DefaultCode",
+        "ManualCorrection": {
+          "Display": true,
+          "Enabled": true
+        },
+        "Name": "SetHub",
+        "Strategies": [
+          {
+            "Name": "ExternalId",
+            "OnEmptyPredicate": "Break",
+            "OnEmptyResult": "Break",
+            "OnError": "Break",
+            "OnMultipleResult": "Break"
+          }
+        ]
+      }
+    ]
+  }
+}

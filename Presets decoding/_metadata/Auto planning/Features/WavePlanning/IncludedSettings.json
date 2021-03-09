@@ -1,0 +1,7 @@
+{
+  "AutoplanningSettings": {
+    "CutWorkIntervalByRoutes": true,
+    "DefaultLoadingTime": 20,
+    "IgnoreBusyTransport": false
+  }
+}

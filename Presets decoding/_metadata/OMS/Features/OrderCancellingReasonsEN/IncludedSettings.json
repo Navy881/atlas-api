@@ -1,0 +1,19 @@
+{
+  "StateChangeReasons": {
+    "CancelReasons": [
+      "Customer Refused - Change of Mind",
+      "Customer Refused - Damaged",
+      "Missing",
+      "Carded",
+      "Address Query",
+      "Site Access /Premises Closed",
+      "Driver Out of Time",
+      "Non-Arrival At Depot",
+      "Incomplete Order",
+      "Incorrect Order",
+      "Not Loaded",
+      "Changing critical parameters",
+      "Other "
+    ]
+  }
+}

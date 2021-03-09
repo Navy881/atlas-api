@@ -1,0 +1,14 @@
+{
+  "TrackAndTraceSettings": {
+    "NotificationPreset": {
+      "NotificationTime": [],
+      "TntCreation": {
+        "RouteCreationOptions": {
+          "States": [
+            "PerformerAssigned"
+          ]
+        }
+      }
+    }
+  }
+}

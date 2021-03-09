@@ -1,0 +1,9 @@
+{
+  "AutoplanningSettings": {
+    "AtheneSettings": {
+      "SolverConfiguration": {
+        "Iterations": "Any"
+      }
+    }
+  }
+}

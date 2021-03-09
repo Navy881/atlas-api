@@ -1,0 +1,15 @@
+{
+  "AutoplanningSettings": {
+    "OrderFilter": {
+      "Tags": {
+        "In": [],
+        "Not": [
+          {
+            "Type": "",
+            "Value": "OrderInRoute"
+          }
+        ]
+      }
+    }
+  }
+}

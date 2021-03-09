@@ -1,0 +1,22 @@
+{
+  "FrontendFeatures": {
+    "TMS:CompanyEdit:Fields": {
+      "hide": [],
+      "show": [
+        "Additional.InnerId",
+        "Additional.ContractCode",
+        "Additional.Inn",
+        "Additional.Kpp"
+      ]
+    },
+    "TMS:CompanyInfo:Fields": {
+      "hide": [],
+      "show": [
+        "Additional.InnerId",
+        "Additional.ContractCode",
+        "Additional.Inn",
+        "Additional.Kpp"
+      ]
+    }
+  }
+}

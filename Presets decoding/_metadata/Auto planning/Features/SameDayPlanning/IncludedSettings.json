@@ -1,0 +1,13 @@
+{
+  "WorkerSubsriberEvents": [
+    {
+      "Triggers": [
+        {
+          "Name": "Autoplanning",
+          "State": "ReadyForPlanning"
+        }
+      ],
+      "Type": "OnOrderStateChange"
+    }
+  ]
+}
